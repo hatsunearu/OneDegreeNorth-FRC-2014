@@ -9,7 +9,9 @@ package edu.wpi.first.wpilibj.templates;
 
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Timer;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
@@ -18,19 +20,25 @@ import edu.wpi.first.wpilibj.IterativeRobot;
  * directory.
  */
 public class SASRobot extends IterativeRobot {
+    
+    RobotDrive driveTrain = new RobotDrive(1,2);
+    Joystick leftStick = new Joystick(1);
+    Joystick rightStick = new Joystick(2);
+    
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
-
+        
+        
     }
 
     /**
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-
+        driveTrain.tankDrive(leftStick,rightStick);
     }
 
     /**
