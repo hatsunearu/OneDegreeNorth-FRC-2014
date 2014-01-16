@@ -5,6 +5,7 @@
  */
 package edu.wpi.first.wpilibj.templates.commands;
 
+
 /**
  *
  * @author Kartikye
@@ -12,8 +13,7 @@ package edu.wpi.first.wpilibj.templates.commands;
 public class DriveWithJoysticks extends CommandBase {
     
     public DriveWithJoysticks() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(drivetrain);
     }
 
     // Called just before this Command runs the first time
@@ -22,6 +22,7 @@ public class DriveWithJoysticks extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        drivetrain.tankDrive(oi.getLeftStick(),oi.getRightStick());
     }
 
     // Make this return true when this Command no longer needs to run execute()
