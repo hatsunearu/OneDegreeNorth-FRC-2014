@@ -1,6 +1,6 @@
-MIDlet-Name: FRC - SAS Robotics 2014
+MIDlet-Name: SAS-Robot-14
 MIDlet-Version: 1.0.0
 MIDlet-Vendor: FIRST
-MIDlet-1: SASRobot, , edu.wpi.first.wpilibj.templates.SASRobot
+MIDlet-1: FRCRobot, , edu.wpi.first.wpilibj.templates.FRCRobot
 MicroEdition-Profile: IMP-1.0
 MicroEdition-Configuration: CLDC-1.1
