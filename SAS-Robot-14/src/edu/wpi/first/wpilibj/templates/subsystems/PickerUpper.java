@@ -7,35 +7,22 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Victor;
-
 /**
  *
  * @author Kartikye
  */
-public class Launcher extends Subsystem {
+public class PickerUpper extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
     Victor motor;
     
-    public Launcher(){
-        super("Launcher");
+    public PickerUpper(){
+        super("PickerUpper");
     }
     
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    }
-    
-    public void up(){
-        motor.set(1);
-    }
-    
-    public void down(){
-        motor.set(-1);
-    }
-    
-    public void doNothing(){
-        motor.set(0);
     }
 }
