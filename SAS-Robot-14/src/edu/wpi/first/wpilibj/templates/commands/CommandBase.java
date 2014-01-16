@@ -2,6 +2,7 @@ package edu.wpi.first.wpilibj.templates.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.templates.OI;
+import edu.wpi.first.wpilibj.templates.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj.templates.subsystems.NetworkTables;
 
 /**
@@ -15,6 +16,7 @@ public abstract class CommandBase extends Command {
     public static OI oi;
     // Create a single static instance of all of your subsystems
     public static NetworkTables networkTables = new NetworkTables();
+    public static Drivetrain drivetrain = new Drivetrain();
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -34,5 +36,9 @@ public abstract class CommandBase extends Command {
 
     public CommandBase() {
         super();
+    }
+    
+    public void tankDrive(double left, double right){
+        drivetrain.tankDrive(left, right);
     }
 }
