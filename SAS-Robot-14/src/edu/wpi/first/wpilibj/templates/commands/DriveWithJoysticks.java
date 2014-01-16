@@ -9,22 +9,19 @@ package edu.wpi.first.wpilibj.templates.commands;
  *
  * @author Kartikye
  */
-public class updateDistance extends CommandBase {
+public class DriveWithJoysticks extends CommandBase {
     
-    double distance;
-    
-    public updateDistance() {
-        requires(networkTables);
+    public DriveWithJoysticks() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        distance = 0;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        distance = networkTables.getDistance();
     }
 
     // Make this return true when this Command no longer needs to run execute()
