@@ -6,33 +6,36 @@
 package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.templates.RobotMap;
-import edu.wpi.first.wpilibj.templates.commands.DriveWithJoysticks;
+import edu.wpi.first.wpilibj.Victor;
 
 /**
  *
  * @author Kartikye
  */
-public class Drivetrain extends Subsystem {
+public class Launcher extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+
+    Victor motor;
     
-    RobotDrive driveTrain;
-    
-    public Drivetrain(){
-        super("Drivetrain");
-        driveTrain = new RobotDrive(RobotMap.leftMotor, RobotMap.rightMotor);
+    public Launcher(){
+        super("Launcher");
     }
     
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-        setDefaultCommand(new DriveWithJoysticks());
     }
     
-    public void tankDrive(double left, double right){
-        driveTrain.tankDrive(left, right);
+    public void up(){
+        
     }
     
+    public void down(){
+        
+    }
+    
+    public void doNothing(){
+        motor.set(0);
+    }
 }
