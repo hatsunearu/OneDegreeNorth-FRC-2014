@@ -15,24 +15,20 @@ import edu.wpi.first.wpilibj.templates.commands.DriveWithJoysticks;
  * @author Kartikye
  */
 public class Drivetrain extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
     
-    RobotDrive driveTrain;
+    RobotDrive drive;
     
     public Drivetrain(){
         super("Drivetrain");
-        driveTrain = new RobotDrive(RobotMap.leftMotor, RobotMap.rightMotor);
+        drive = new RobotDrive(RobotMap.leftMotor, RobotMap.rightMotor);
     }
     
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
         setDefaultCommand(new DriveWithJoysticks());
     }
     
     public void tankDrive(double left, double right){
-        driveTrain.tankDrive(left, right);
+        drive.tankDrive(left, right);
     }
     
 }

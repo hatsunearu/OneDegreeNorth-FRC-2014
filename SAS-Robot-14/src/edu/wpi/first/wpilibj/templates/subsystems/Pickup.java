@@ -11,18 +11,19 @@ import edu.wpi.first.wpilibj.Victor;
  *
  * @author Kartikye
  */
-public class PickerUpper extends Subsystem {
+public class Pickup extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
     Victor motor;
     
-    public PickerUpper(){
-        super("PickerUpper");
+    public Pickup(){
+        super("Pickup");
     }
     
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        
     }
+    
+    
 }

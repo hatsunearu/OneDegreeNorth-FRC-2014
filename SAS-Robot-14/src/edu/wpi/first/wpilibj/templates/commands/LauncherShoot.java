@@ -5,19 +5,35 @@
  */
 package edu.wpi.first.wpilibj.templates.commands;
 
+import edu.wpi.first.wpilibj.templates.subsystems.*;
+
 /**
  *
- * @author Kartikye
+ * @author Kartikye + hatsunearu
  */
 public class LauncherShoot extends CommandBase {
     
+    int strength = 100; //Strength of throw, 0-100
+    int angle = 50; //Launch angle, 0-100
+    
     public LauncherShoot() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(launcher);
+    }
+    
+    public LauncherShoot(int s) {
+        requires(launcher);
+        strength = s;
+    }
+    
+    public LauncherShoot(int s, int a) {
+        requires(launcher);
+        strength = s;
+        angle = a;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -25,6 +41,7 @@ public class LauncherShoot extends CommandBase {
     }
 
     // Make this return true when this Command no longer needs to run execute()
+    //return true when angle is reached
     protected boolean isFinished() {
         return false;
     }
