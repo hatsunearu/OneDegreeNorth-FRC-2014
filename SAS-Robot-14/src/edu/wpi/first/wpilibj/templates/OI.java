@@ -46,16 +46,24 @@ public class OI {
     
     
     
-    public int getTrigger(){
+    public int getLeftTrigger(){
         if(joypad.getRawAxis(5) < 0){
             return -1;
-        }else if(joypad.getRawAxis(5) > 0){
+        }else{
+            return 0;
+        }
+    }
+    
+    public int getRightTrigger(){
+        if(joypad.getRawAxis(5) > 0){
             return 1;
-        }else return 0;
+        }else{
+            return 0;
+        }
     }
     
     public double getLeftStick(){
-        return joypad.getRawAxis(2);
+        return joypad.getY();
         
     }
     
