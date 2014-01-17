@@ -44,8 +44,18 @@ public class OI {
     
     Joystick joypad = new Joystick(1);
     
+    
+    
+    public int getTrigger(){
+        if(joypad.getRawAxis(5) < 0){
+            return -1;
+        }else if(joypad.getRawAxis(5) > 0){
+            return 1;
+        }else return 0;
+    }
+    
     public double getLeftStick(){
-        return joypad.getY();
+        return joypad.getRawAxis(2);
         
     }
     
