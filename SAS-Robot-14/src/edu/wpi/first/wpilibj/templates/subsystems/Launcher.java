@@ -27,15 +27,11 @@ public class Launcher extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void up(){
-        motor.set(1);
+    public void move(double d) {
+        motor.set(d);
     }
     
-    public void down(){
-        motor.set(-1);
-    }
-    
-    public void doNothing(){
+    public void stop() {
         motor.set(0);
     }
 }
