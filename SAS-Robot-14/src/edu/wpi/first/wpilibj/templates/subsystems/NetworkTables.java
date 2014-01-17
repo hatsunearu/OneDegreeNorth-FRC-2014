@@ -12,16 +12,14 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
  * @author Kartikye
  */
 public class NetworkTables extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+    
     public NetworkTable table;
     double distance;
     
     public NetworkTables(){
-        super("networkTables");
+        super("NetworkTables");
     }
 
-    
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());

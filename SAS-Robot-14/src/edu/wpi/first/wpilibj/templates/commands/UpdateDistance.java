@@ -9,11 +9,11 @@ package edu.wpi.first.wpilibj.templates.commands;
  *
  * @author Kartikye
  */
-public class updateDistance extends CommandBase {
+public class UpdateDistance extends CommandBase {
     
     double distance;
     
-    public updateDistance() {
+    public UpdateDistance() {
         requires(networkTables);
     }
 
