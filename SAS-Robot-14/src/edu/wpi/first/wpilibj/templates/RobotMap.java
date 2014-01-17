@@ -16,11 +16,7 @@ public class RobotMap {
     
     public static final int launcher = 3;
     
-<<<<<<< HEAD
     public static final int pickerUpper = 4;
-=======
-    public static final int pickup = 4;
->>>>>>> 52d1b87fd5b6ab682287760220f10f5d04666b96
     
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:
