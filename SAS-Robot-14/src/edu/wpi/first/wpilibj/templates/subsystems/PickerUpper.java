@@ -7,6 +7,7 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.templates.RobotMap;
 /**
  *
  * @author Kartikye
@@ -19,10 +20,23 @@ public class PickerUpper extends Subsystem {
     
     public PickerUpper(){
         super("PickerUpper");
+        motor = new Victor(RobotMap.pickerUpper);
     }
     
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    }
+    
+    public void doNothing(){
+        motor.set(0);
+    }
+    
+    public void in(){
+        motor.set(1);
+    }
+    
+    public void out(){
+        motor.set(-1);
     }
 }
