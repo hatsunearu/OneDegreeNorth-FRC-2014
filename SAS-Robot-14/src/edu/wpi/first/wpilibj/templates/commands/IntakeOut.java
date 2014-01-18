@@ -9,17 +9,17 @@ package edu.wpi.first.wpilibj.templates.commands;
  *
  * @author Kartikye
  */
-public class PickerUpperOut extends CommandBase {
+public class IntakeOut extends CommandBase {
     
-    public PickerUpperOut() {
+    public IntakeOut() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(pickerUpper);
+        requires(intake);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        pickerUpper.out();
+        intake.out();
     }
 
     // Called repeatedly when this Command is scheduled to run

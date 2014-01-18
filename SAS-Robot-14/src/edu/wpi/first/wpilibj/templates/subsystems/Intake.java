@@ -8,7 +8,7 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.templates.RobotMap;
-import edu.wpi.first.wpilibj.templates.commands.PickerUpperDoNothing;
+import edu.wpi.first.wpilibj.templates.commands.IntakeDoNothing;
 /**
  *
  * @author Kartikye
@@ -21,14 +21,14 @@ public class Intake extends Subsystem {
     
     public Intake(){
         super("Intake");
-        motor = new Relay(RobotMap.Intake);
+        motor = new Relay(RobotMap.intake);
     }
     
     public void initDefaultCommand() {
         setDefaultCommand(new IntakeDoNothing());
     }
     
-    public void doNothing(){
+    public void stop(){
         motor.set(Relay.Value.kOff);
     }
     

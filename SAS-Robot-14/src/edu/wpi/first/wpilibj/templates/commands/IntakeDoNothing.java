@@ -9,12 +9,12 @@ package edu.wpi.first.wpilibj.templates.commands;
  *
  * @author Kartikye
  */
-public class PickerUpperDoNothing extends CommandBase {
+public class IntakeDoNothing extends CommandBase {
     
-    public PickerUpperDoNothing() {
+    public IntakeDoNothing() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(pickerUpper);
+        requires(intake);
     }
 
     // Called just before this Command runs the first time
@@ -23,7 +23,7 @@ public class PickerUpperDoNothing extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        pickerUpper.doNothing();
+        intake.stop();
     }
 
     // Make this return true when this Command no longer needs to run execute()
