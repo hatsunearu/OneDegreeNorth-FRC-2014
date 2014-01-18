@@ -6,7 +6,7 @@
 package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Victor;
 /**
  *
  * @author Kartikye
@@ -15,7 +15,7 @@ public class Launcher extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-    Relay motor;
+    Victor motor;
     
     public Launcher(){
         super("Launcher");
@@ -27,14 +27,14 @@ public class Launcher extends Subsystem {
     }
     
     public void in() {
-        motor.set(Relay.Value.kForward);
+        motor.set(1);
     }
     
     public void out(){
-        motor.set(Relay.Value.kReverse);
+        motor.set(-1);
     }
     
     public void stop() {
-        motor.set(Relay.Value.kOff);
+        motor.set(0);
     }
 }
