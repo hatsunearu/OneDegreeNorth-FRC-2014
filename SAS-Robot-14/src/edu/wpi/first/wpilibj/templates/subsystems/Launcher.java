@@ -7,34 +7,49 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Victor;
-/**
- *
- * @author Kartikye
- */
+//import digital IO
+
 public class Launcher extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
 
     Victor motor;
+    boolean lowLimSwitch = false;
+    boolean highLimSwitch = false;
+    
+    final boolean retractSpeed = -0.5; 
     
     public Launcher(){
         super("Launcher");
     }
     
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new LauncherDoNothing());
     }
     
-    public void in() {
-        motor.set(1);
+    public void move(double speed) {
+        
+        if(!highLimSwitch && speed >= 0 && speed <= 1) {
+            motor.set(speed);
+        }
+        else {
+            motor.stop();
+        }
+        
     }
     
-    public void out(){
-        motor.set(-1);
+    public void retract(){
+        if(!lowLimSwitch) {
+            motor.set(retractSpeed);
+        }
+        else {
+            motor.stop();
+        }
     }
     
     public void stop() {
         motor.set(0);
+    }
+    
+    public void updateSwitches() {
+        //update lowLimSwitch highLimSwitch
     }
 }
