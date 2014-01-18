@@ -9,9 +9,9 @@ package edu.wpi.first.wpilibj.templates.commands;
  *
  * @author Kartikye
  */
-public class PickerUpperController extends CommandBase {
+public class IntakeController extends CommandBase {
     
-    public PickerUpperController() {
+    public IntakeController() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -23,7 +23,7 @@ public class PickerUpperController extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if(oi.getLeftTrigger() == -1){
-            pickerUpper.in();
+            intake.in();
         }
     }
 
