@@ -7,29 +7,24 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
-/**
- *
- * @author Kartikye
- */
-public class NetworkTables extends Subsystem {
+
+public class Vision extends Subsystem {
     
     public NetworkTable table;
     double distance;
     
-    public NetworkTables(){
-        super("NetworkTables");
+    public Vision() {
+        super("vision");
     }
 
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
         table = NetworkTable.getTable("datatable"); 
-        
+        getDistance();
     }
     
     public double getDistance(){
-        distance = table.getNumber("distance",0.0);
-        System.out.println(distance);
+        distance = table.getNumber("distance", 0.0);
+        System.out.println(distance); //debug statement
         return distance;
     }
     
