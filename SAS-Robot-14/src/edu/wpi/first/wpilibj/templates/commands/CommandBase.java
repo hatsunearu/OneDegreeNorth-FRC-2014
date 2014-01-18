@@ -3,7 +3,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.templates.OI;
 import edu.wpi.first.wpilibj.templates.subsystems.Drivetrain;
-import edu.wpi.first.wpilibj.templates.subsystems.NetworkTables;
+import edu.wpi.first.wpilibj.templates.subsystems.Vision;
 import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
 import edu.wpi.first.wpilibj.templates.subsystems.Intake;
 /**
@@ -16,7 +16,7 @@ public abstract class CommandBase extends Command {
 
     public static OI oi;
     // Create a single static instance of all of your subsystems
-    public static NetworkTables networkTables = new NetworkTables();
+    public static Vision vision = new Vision();
     public static Drivetrain drivetrain = new Drivetrain();
     public static Launcher launcher = new Launcher();
     public static Intake intake = new Intake();
@@ -30,7 +30,7 @@ public abstract class CommandBase extends Command {
         oi = new OI();
 
         // Show what command your subsystem is running on the SmartDashboard
-        SmartDashboard.putData(networkTables);
+        SmartDashboard.putData(vision);
     }
 
     public CommandBase(String name) {

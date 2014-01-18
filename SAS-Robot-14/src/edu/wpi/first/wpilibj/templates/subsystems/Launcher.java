@@ -7,6 +7,7 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.templates.commands.LauncherDoNothing;
 //import digital IO
 
 public class Launcher extends Subsystem {
@@ -15,7 +16,7 @@ public class Launcher extends Subsystem {
     boolean lowLimSwitch = false;
     boolean highLimSwitch = false;
     
-    final boolean retractSpeed = -0.5; 
+    final double retractSpeed = -0.5; 
     
     public Launcher(){
         super("Launcher");
@@ -31,7 +32,7 @@ public class Launcher extends Subsystem {
             motor.set(speed);
         }
         else {
-            motor.stop();
+            stop();
         }
         
     }
@@ -41,7 +42,7 @@ public class Launcher extends Subsystem {
             motor.set(retractSpeed);
         }
         else {
-            motor.stop();
+            stop();
         }
     }
     
