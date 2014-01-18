@@ -6,39 +6,37 @@
 package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.templates.commands.PickerUpperDoNothing;
 /**
  *
  * @author Kartikye
  */
-public class PickerUpper extends Subsystem {
+public class Intake extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
-    Victor motor;
+    Relay motor;
     
-    public PickerUpper(){
-        super("PickerUpper");
-        motor = new Victor(RobotMap.pickerUpper);
+    public Intake(){
+        super("Intake");
+        motor = new Relay(RobotMap.Intake);
     }
     
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-        setDefaultCommand(new PickerUpperDoNothing());
+        setDefaultCommand(new IntakeDoNothing());
     }
     
     public void doNothing(){
-        motor.set(0);
+        motor.set(Relay.Value.kOff);
     }
     
     public void in(){
-        motor.set(1);
+        motor.set(Relay.Value.KForward); //may require reversal
     }
     
     public void out(){
-        motor.set(-1);
+        motor.set(Relay.Value.kReverse); //may require reversal
     }
 }
