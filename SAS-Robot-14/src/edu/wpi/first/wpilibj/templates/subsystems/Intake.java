@@ -33,7 +33,7 @@ public class Intake extends Subsystem {
     }
     
     public void in(){
-        motor.set(Relay.Value.KForward); //may require reversal
+        motor.set(Relay.Value.kForward); //may require reversal
     }
     
     public void out(){
