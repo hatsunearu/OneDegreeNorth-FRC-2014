@@ -14,7 +14,7 @@ public class UpdateDistance extends CommandBase {
     double distance;
     
     public UpdateDistance() {
-        requires(networkTables);
+        requires(vision);
     }
 
     // Called just before this Command runs the first time
@@ -24,7 +24,7 @@ public class UpdateDistance extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        distance = networkTables.getDistance();
+        distance = vision.getDistance();
         System.out.println(distance);
     }
 
