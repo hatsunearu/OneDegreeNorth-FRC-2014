@@ -8,7 +8,7 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.templates.RobotMap;
-import edu.wpi.first.wpilibj.templates.commands.IntakeDoNothing;
+import edu.wpi.first.wpilibj.templates.commands.IntakeController;
 /**
  *
  * @author Kartikye
@@ -25,7 +25,7 @@ public class Intake extends Subsystem {
     }
     
     public void initDefaultCommand() {
-        setDefaultCommand(new IntakeDoNothing());
+        setDefaultCommand(new IntakeController());
     }
     
     public void stop(){
