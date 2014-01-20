@@ -13,7 +13,7 @@ public class LauncherDoNothing extends CommandBase {
     
     public LauncherDoNothing() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(launcher);
     }
 
     // Called just before this Command runs the first time
