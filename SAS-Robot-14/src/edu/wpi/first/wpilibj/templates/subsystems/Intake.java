@@ -22,6 +22,7 @@ public class Intake extends Subsystem {
     public Intake(){
         super("Intake");
         motor = new Relay(RobotMap.intake);
+        System.out.println("INTAKE instantiation"); //DEBUG
     }
     
     public void initDefaultCommand() {
@@ -30,13 +31,16 @@ public class Intake extends Subsystem {
     
     public void stop(){
         motor.set(Relay.Value.kOff);
+        System.out.println("INTAKE stop"); //DEBUG
     }
     
     public void in(){
         motor.set(Relay.Value.kForward); //may require reversal
+        System.out.println("INTAKE in"); //DEBUG
     }
     
     public void out(){
         motor.set(Relay.Value.kReverse); //may require reversal
+        System.out.println("INTAKE out"); //DEBUG
     }
 }
