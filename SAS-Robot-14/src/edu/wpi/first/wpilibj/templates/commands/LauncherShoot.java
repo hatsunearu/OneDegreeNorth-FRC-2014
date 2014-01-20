@@ -5,45 +5,42 @@
  */
 package edu.wpi.first.wpilibj.templates.commands;
 
-import edu.wpi.first.wpilibj.templates.subsystems.*;
+import edu.wpi.first.wpilibj.templates.RobotConstants;
+import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
 
-/**
- *
- * @author Kartikye + hatsunearu
- */
 public class LauncherShoot extends CommandBase {
     
-    int strength = 100; //Strength of throw, 0-100
-    int angle = 50; //Launch angle, 0-100
+    double strength = 0.9;
+    Launcher launch = new Launcher();
     
     public LauncherShoot() {
         requires(launcher);
+        this.setTimeout(RobotConstants.defaultLaunchTime);
     }
     
-    public LauncherShoot(int s) {
+    public LauncherShoot(double s) {
         requires(launcher);
-        strength = s;
+        this.setTimeout(RobotConstants.defaultLaunchTime);
     }
     
-    public LauncherShoot(int s, int a) {
+    public LauncherShoot(double s, double t) {
         requires(launcher);
         strength = s;
-        angle = a;
+        this.setTimeout(t);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    
+        launch.stop();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        launch.move(strength);
     }
 
-    // Make this return true when this Command no longer needs to run execute()
-    //return true when angle is reached
-    protected boolean isFinished() {
-        return false;
+    protected boolean isFinished() { //safety mechanism, robot should stop moving when timeout is reached
+        return launch.isLaunched();
     }
 
     // Called once after isFinished returns true

@@ -7,6 +7,8 @@
 
 package edu.wpi.first.wpilibj.templates.commands;
 
+import edu.wpi.first.wpilibj.templates.RobotConstants;
+
 /**
  *
  * @author Kartikye
@@ -23,7 +25,12 @@ public class DriveWithJoysticks extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        drivetrain.tankDrive(oi.getLeftStick() * oi.getLeftStick(), oi.getRightStick() * oi.getRightStick());
+        if( !RobotConstants.linear ) {
+            drivetrain.tankDrive(oi.getLeftStick() * oi.getLeftStick(), oi.getRightStick() * oi.getRightStick());
+        }
+        else {
+            drivetrain.tankDrive(oi.getLeftStick(), oi.getRightStick());
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()

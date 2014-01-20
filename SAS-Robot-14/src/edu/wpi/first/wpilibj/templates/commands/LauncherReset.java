@@ -5,15 +5,18 @@
  */
 package edu.wpi.first.wpilibj.templates.commands;
 
+import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
+
 /**
  *
  * @author Kartikye
  */
 public class LauncherReset extends CommandBase {
     
+    Launcher launch = new Launcher();
+    
     public LauncherReset() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(launcher);
     }
 
     // Called just before this Command runs the first time
@@ -22,15 +25,17 @@ public class LauncherReset extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        launch.retract();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return launch.isRetracted();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        launch.stop();
     }
 
     // Called when another command which requires one or more of the same
