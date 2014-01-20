@@ -2,8 +2,10 @@
 package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.templates.commands.IntakeIn;
+import edu.wpi.first.wpilibj.templates.commands.IntakeOut;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -44,8 +46,21 @@ public class OI {
     
     Joystick joypad = new Joystick(1);
     
+        Button button1 = new JoystickButton(joypad, 1),
+            button2 = new JoystickButton(joypad, 2),
+            button3 = new JoystickButton(joypad, 3),
+            button4 = new JoystickButton(joypad, 4),
+            button5 = new JoystickButton(joypad, 5),
+            button6 = new JoystickButton(joypad, 6),
+            button7 = new JoystickButton(joypad, 7),
+            button8 = new JoystickButton(joypad, 8);
     
-    
+    public OI() {
+        button1.whenPressed(new IntakeIn());
+        button2.whenPressed(new IntakeOut());
+    }
+        
+    /*
     public int getLeftTrigger(){
         if(joypad.getRawAxis(5) < 0){
             return -1;
@@ -61,7 +76,7 @@ public class OI {
             return 0;
         }
     }
-    
+    */
     public double getLeftStick(){
         return joypad.getY();
         

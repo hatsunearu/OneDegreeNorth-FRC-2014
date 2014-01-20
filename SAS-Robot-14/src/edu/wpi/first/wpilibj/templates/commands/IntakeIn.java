@@ -1,30 +1,29 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package edu.wpi.first.wpilibj.templates.commands;
 
+import edu.wpi.first.wpilibj.templates.subsystems.Intake;
+
 /**
  *
- * @author Kartikye
+ * @author hatsunearu
  */
-public class IntakeController extends CommandBase {
+public class IntakeIn extends CommandBase {
     
-    public IntakeController() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    public IntakeIn() {
+        requires(intake);
     }
-
+    
     // Called just before this Command runs the first time
     protected void initialize() {
+        intake.in();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if(oi.getLeftTrigger() == -1){
-            intake.in();
-        }
+    
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -40,4 +39,5 @@ public class IntakeController extends CommandBase {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
+    
 }
