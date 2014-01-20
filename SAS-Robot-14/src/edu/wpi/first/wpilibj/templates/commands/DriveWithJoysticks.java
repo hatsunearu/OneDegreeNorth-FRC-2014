@@ -26,7 +26,7 @@ public class DriveWithJoysticks extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if( !RobotConstants.linear ) {
-            drivetrain.tankDrive( Math.sqrt(oi.getLeftStick()), Math.sqrt(oi.getRightStick()) );
+            drivetrain.tankDrive( getSign( oi.getLeftStick() ) * Math.sqrt(Math.abs(oi.getLeftStick())), getSign( oi.getRightStick() ) * Math.sqrt(Math.abs(oi.getRightStick())));
         }
         else {
             drivetrain.tankDrive(oi.getLeftStick(), oi.getRightStick());
@@ -45,5 +45,12 @@ public class DriveWithJoysticks extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    }
+    
+    private short getSign(double d) {
+        if(d >= 0) {
+            return 1;
+        }
+        return -1;
     }
 }
