@@ -26,7 +26,7 @@ public class DriveWithJoysticks extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if( !RobotConstants.linear ) {
-            drivetrain.tankDrive(oi.getLeftStick() * oi.getLeftStick(), oi.getRightStick() * oi.getRightStick());
+            drivetrain.tankDrive( Math.sqrt(oi.getLeftStick()), Math.sqrt(oi.getRightStick()) );
         }
         else {
             drivetrain.tankDrive(oi.getLeftStick(), oi.getRightStick());
