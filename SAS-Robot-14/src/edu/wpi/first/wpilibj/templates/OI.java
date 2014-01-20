@@ -78,7 +78,7 @@ public class OI {
     }
     */
     public double getRightStick(){
-        return joypad.getRawAxis(5);
+        return joypad.getRawAxis(2);
         
     }
     
