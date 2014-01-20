@@ -31,11 +31,13 @@ public class FRCRobot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
+        System.out.println("RobotInit()");
         CommandBase.init();
         autonomousCommand = new AutonomousShootGroup();
     }
 
     public void autonomousInit() {
+        System.out.println("AutonomousInit()");
         // schedule the autonomous command (example)
         autonomousCommand.start();
     }
@@ -44,10 +46,12 @@ public class FRCRobot extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
+        System.out.println("AutonomousPeriodic()");
         Scheduler.getInstance().run();
     }
 
     public void teleopInit() {
+        System.out.println("AutonomousInit()");
 	// This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
