@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.wpi.first.wpilibj.templates.commands;
 
+
+package edu.wpi.first.wpilibj.templates.commands;
 
 /**
  *
@@ -22,7 +23,7 @@ public class DriveWithJoysticks extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        drivetrain.tankDrive(oi.getLeftStick(),oi.getRightStick());
+        drivetrain.tankDrive(oi.getLeftStick() * oi.getLeftStick(), oi.getRightStick() * oi.getRightStick());
     }
 
     // Make this return true when this Command no longer needs to run execute()
