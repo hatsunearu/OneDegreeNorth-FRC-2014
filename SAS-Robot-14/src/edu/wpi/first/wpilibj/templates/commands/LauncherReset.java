@@ -5,6 +5,7 @@
  */
 package edu.wpi.first.wpilibj.templates.commands;
 
+import edu.wpi.first.wpilibj.templates.RobotConstants;
 import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
 
 /**
@@ -13,8 +14,24 @@ import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
  */
 public class LauncherReset extends CommandBase {
     
+    double speed = RobotConstants.defaultRetractSpeed;
+    
     public LauncherReset() {
         requires(launcher);
+        this.setTimeout(RobotConstants.defaultRetractTime);
+    }
+    
+    public LauncherReset(double spd) {
+        requires(launcher);
+        this.setTimeout(RobotConstants.defaultRetractTime);
+        speed = spd;
+    }
+    
+    public LauncherReset(double spd, double timeout) {
+        requires(launcher);
+        this.setTimeout(RobotConstants.defaultRetractTime);
+        speed = spd;
+        this.setTimeout(timeout);
     }
 
     // Called just before this Command runs the first time
@@ -28,7 +45,7 @@ public class LauncherReset extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return launcher.isRetracted();
+        return (launcher.isRetracted() || this.isTimedOut());
     }
 
     // Called once after isFinished returns true

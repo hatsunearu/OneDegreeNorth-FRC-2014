@@ -6,6 +6,9 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.templates.commands.IntakeIn;
 import edu.wpi.first.wpilibj.templates.commands.IntakeOut;
+import edu.wpi.first.wpilibj.templates.commands.LauncherReset;
+import edu.wpi.first.wpilibj.templates.commands.LauncherShoot;
+import edu.wpi.first.wpilibj.templates.commands.LauncherShootAndReset;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -46,18 +49,22 @@ public class OI {
     
     Joystick joypad = new Joystick(1);
     
-        Button button1 = new JoystickButton(joypad, 1),
-            button2 = new JoystickButton(joypad, 2),
-            button3 = new JoystickButton(joypad, 3),
-            button4 = new JoystickButton(joypad, 4),
+        Button button1 = new JoystickButton(joypad, 1), //A
+            button2 = new JoystickButton(joypad, 2), //B
+            button3 = new JoystickButton(joypad, 3), //X
+            button4 = new JoystickButton(joypad, 4), //Y
             button5 = new JoystickButton(joypad, 5),
             button6 = new JoystickButton(joypad, 6),
             button7 = new JoystickButton(joypad, 7),
-            button8 = new JoystickButton(joypad, 8);
+            button8 = new JoystickButton(joypad, 8), //back
+            button9 = new JoystickButton(joypad, 9); //select
     
     public OI() {
         button1.whenPressed(new IntakeIn());
         button2.whenPressed(new IntakeOut());
+        button5.whenPressed(new LauncherShoot());
+        button6.whenPressed(new LauncherReset());
+        button7.whenPressed(new LauncherShootAndReset());
     }
         
     /*
