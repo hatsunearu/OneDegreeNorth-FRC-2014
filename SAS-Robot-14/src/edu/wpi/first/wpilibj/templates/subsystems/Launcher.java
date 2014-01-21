@@ -9,11 +9,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.templates.commands.LauncherDoNothing;
 import edu.wpi.first.wpilibj.templates.RobotConstants;
+import edu.wpi.first.wpilibj.templates.RobotMap;
 //import digital IO
 
 public class Launcher extends Subsystem {
 
-    Victor motor;
+    Victor motor = new Victor(RobotMap.launcher);
     boolean lowLimSwitch = false;
     boolean highLimSwitch = false;
     
