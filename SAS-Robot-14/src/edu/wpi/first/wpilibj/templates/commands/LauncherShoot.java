@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
 
 public class LauncherShoot extends CommandBase {
     
-    double strength = 0.9;
+    double strength = RobotConstants.defaultLaunchSpeed;
     
     public LauncherShoot() {
         requires(launcher);
@@ -39,7 +39,7 @@ public class LauncherShoot extends CommandBase {
     }
 
     protected boolean isFinished() { //safety mechanism, robot should stop moving when timeout is reached
-        return launcher.isLaunched();
+        return (launcher.isLaunched() || this.isTimedOut());
     }
 
     // Called once after isFinished returns true

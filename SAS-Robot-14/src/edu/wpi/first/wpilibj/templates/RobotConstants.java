@@ -20,5 +20,9 @@ public class RobotConstants {
     
     //LauncherShoot
     public static final double defaultLaunchTime = 0.5;
-    public static final double defaultLaunchSpeed = 0.8;
+    public static final double defaultLaunchSpeed = 1.0;
+
+    //LauncherReset
+    public static final double defaultRetractTime = 1;
+    public static final double defaultRetractSpeed = 0.5;
 }
