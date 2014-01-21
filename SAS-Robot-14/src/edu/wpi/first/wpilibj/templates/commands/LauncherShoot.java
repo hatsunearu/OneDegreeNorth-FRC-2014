@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
 public class LauncherShoot extends CommandBase {
     
     double strength = 0.9;
-    Launcher launch = new Launcher();
     
     public LauncherShoot() {
         requires(launcher);
@@ -31,16 +30,16 @@ public class LauncherShoot extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        launch.stop();
+        launcher.stop();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        launch.move(strength);
+        launcher.move(strength);
     }
 
     protected boolean isFinished() { //safety mechanism, robot should stop moving when timeout is reached
-        return launch.isLaunched();
+        return launcher.isLaunched();
     }
 
     // Called once after isFinished returns true
