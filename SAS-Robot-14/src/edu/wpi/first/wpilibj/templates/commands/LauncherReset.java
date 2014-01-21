@@ -13,8 +13,6 @@ import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
  */
 public class LauncherReset extends CommandBase {
     
-    Launcher launch = new Launcher();
-    
     public LauncherReset() {
         requires(launcher);
     }
@@ -25,17 +23,17 @@ public class LauncherReset extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        launch.retract();
+        launcher.retract();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return launch.isRetracted();
+        return launcher.isRetracted();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        launch.stop();
+        launcher.stop();
     }
 
     // Called when another command which requires one or more of the same
