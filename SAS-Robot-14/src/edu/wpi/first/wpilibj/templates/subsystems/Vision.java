@@ -7,10 +7,10 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Vision extends Subsystem {
     
-    public NetworkTable table;
     double distance;
     
     public Vision() {
@@ -18,15 +18,14 @@ public class Vision extends Subsystem {
     }
 
     public void initDefaultCommand() {
-        table = NetworkTable.getTable("datatable"); 
         getDistance();
     }
     
     public double getDistance(){
-        distance = table.getNumber("Distance", 0.0);
-        System.out.println(distance); //debug statement
+        distance = SmartDashboard.getNumber("Distance");
         return distance;
     }
+    
     
     
 }

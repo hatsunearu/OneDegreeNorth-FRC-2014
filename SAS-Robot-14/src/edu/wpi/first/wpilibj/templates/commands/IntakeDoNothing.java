@@ -12,8 +12,6 @@ package edu.wpi.first.wpilibj.templates.commands;
 public class IntakeDoNothing extends CommandBase {
     
     public IntakeDoNothing() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         requires(intake);
     }
 

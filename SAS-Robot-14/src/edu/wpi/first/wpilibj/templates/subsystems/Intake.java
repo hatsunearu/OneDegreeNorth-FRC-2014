@@ -31,16 +31,16 @@ public class Intake extends Subsystem {
     
     public void stop(){
         motor.set(Relay.Value.kOff);
-        System.out.println("INTAKE stop"); //DEBUG
+        //System.out.println("INTAKE stop"); //DEBUG
     }
     
     public void in(){
         motor.set(Relay.Value.kForward); //may require reversal
-        System.out.println("INTAKE in"); //DEBUG
+        //System.out.println("INTAKE in"); //DEBUG
     }
     
     public void out(){
         motor.set(Relay.Value.kReverse); //may require reversal
-        System.out.println("INTAKE out"); //DEBUG
+        //System.out.println("INTAKE out"); //DEBUG
     }
 }

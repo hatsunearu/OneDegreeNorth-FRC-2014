@@ -10,22 +10,23 @@ import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
 
 public class LauncherShoot extends CommandBase {
     
-    double strength = RobotConstants.defaultLaunchSpeed;
+    double speed = RobotConstants.defaultLaunchSpeed;
     
     public LauncherShoot() {
         requires(launcher);
         this.setTimeout(RobotConstants.defaultLaunchTime);
     }
     
-    public LauncherShoot(double s) {
+    public LauncherShoot(double spd) {
         requires(launcher);
+        speed = spd;
         this.setTimeout(RobotConstants.defaultLaunchTime);
     }
     
-    public LauncherShoot(double s, double t) {
+    public LauncherShoot(double spd, double timeout) {
         requires(launcher);
-        strength = s;
-        this.setTimeout(t);
+        speed = spd;
+        this.setTimeout(timeout);
     }
 
     // Called just before this Command runs the first time
@@ -35,7 +36,7 @@ public class LauncherShoot extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        launcher.move(strength);
+        launcher.move(speed);
     }
 
     protected boolean isFinished() { //safety mechanism, robot should stop moving when timeout is reached
@@ -44,6 +45,7 @@ public class LauncherShoot extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+        launcher.stop();
     }
 
     // Called when another command which requires one or more of the same
