@@ -21,9 +21,12 @@ public class DriveDistance extends CommandBase {
     }
 
     protected void execute() {
-        drivetrain.tankDrive(0, 0);
-        stopped = true;
+        if(!stopped){
+            drivetrain.tankDrive(0, 0);
+            stopped = true;
+        }
         new UpdateDistance();
+        System.out.print(vision);
     }
 
     // Make this return true when this Command no longer needs to run execute()
