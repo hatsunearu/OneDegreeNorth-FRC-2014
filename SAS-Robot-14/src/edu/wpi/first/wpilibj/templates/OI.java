@@ -4,8 +4,10 @@ package edu.wpi.first.wpilibj.templates;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.templates.commands.DriveDistance;
 import edu.wpi.first.wpilibj.templates.commands.IntakeIn;
 import edu.wpi.first.wpilibj.templates.commands.IntakeOut;
+import edu.wpi.first.wpilibj.templates.commands.InterruptAll;
 import edu.wpi.first.wpilibj.templates.commands.LauncherReset;
 import edu.wpi.first.wpilibj.templates.commands.LauncherShoot;
 import edu.wpi.first.wpilibj.templates.commands.LauncherShootAndReset;
@@ -62,6 +64,8 @@ public class OI {
     public OI() {
         button1.whenPressed(new IntakeIn());
         button2.whenPressed(new IntakeOut());
+        button3.whenPressed(new DriveDistance());
+        button4.whenPressed(new InterruptAll());
         button5.whenPressed(new LauncherShoot());
         button6.whenPressed(new LauncherReset());
         button7.whenPressed(new LauncherShootAndReset());

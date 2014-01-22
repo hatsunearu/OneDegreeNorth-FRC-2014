@@ -25,4 +25,9 @@ public class RobotConstants {
     //LauncherReset
     public static final double defaultRetractTime = 1;
     public static final double defaultRetractSpeed = 0.5;
+    
+    //Default Drive Distance
+    public static final double DriveDistance = 2;
+    public static final double DriveDistanceKp = 0.4;
+    public static final double DriveDistanceTimeout = 10;
 }

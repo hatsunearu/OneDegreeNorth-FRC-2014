@@ -1,7 +1,6 @@
 package edu.wpi.first.wpilibj.templates.commands;
 
-import edu.wpi.first.wpilibj.templates.subsystems.Drivetrain;
-import edu.wpi.first.wpilibj.templates.subsystems.Vision;
+import edu.wpi.first.wpilibj.templates.RobotConstants;
 
 /**
  *
@@ -10,28 +9,40 @@ import edu.wpi.first.wpilibj.templates.subsystems.Vision;
 public class DriveDistance extends CommandBase {
     
     private boolean stopped = false;
+    double distanceToDrive = RobotConstants.DriveDistance;
+    double Kp = RobotConstants.DriveDistanceKp;
+    double error;
     
     public DriveDistance() {
         requires(drivetrain);
         requires(vision);
+        this.setTimeout(RobotConstants.DriveDistanceTimeout);
+    }
+    
+    public DriveDistance(double distance) {
+        distanceToDrive = distance;
+        requires(drivetrain);
+        requires(vision);
+        this.setTimeout(RobotConstants.DriveDistanceTimeout);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        updatePID();
     }
 
     protected void execute() {
-        if(!stopped){
-            drivetrain.tankDrive(0, 0);
-            stopped = true;
-        }
-        new UpdateDistance();
-        System.out.print(vision);
+        updatePID();
+        drivetrain.tankDrive(Kp * error, Kp * error); 
+        System.out.println("Error: " +error+ "Motor: " + Kp * error);
     }
-
+    
+    protected void updatePID() {
+         error = (vision.getDistance() - distanceToDrive);
+    }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return stopped;
+        return this.isTimedOut() || (Math.abs(error) < 0.05);
     }
 
     // Called once after isFinished returns true
