@@ -23,7 +23,7 @@ public class Vision extends Subsystem {
     }
     
     public double getDistance(){
-        distance = table.getNumber("distance", 0.0);
+        distance = table.getNumber("Distance", 0.0);
         System.out.println(distance); //debug statement
         return distance;
     }
