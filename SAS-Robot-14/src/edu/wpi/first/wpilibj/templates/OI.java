@@ -84,13 +84,16 @@ public class OI {
         }
     }
     */
-    public double getLeftStick(){
-        return joypad.getRawAxis(2);
-        
+    public double getLeftStick() {
+        if (Math.abs(joypad.getRawAxis(2)) < 0.05)
+            return 0;
+        return joypad.getRawAxis(2);        
     }
     
-    public double getRightStick(){
-        return joypad.getRawAxis(5);
+    public double getRightStick() {
+        if (Math.abs(joypad.getRawAxis(5)) < 0.05)
+            return 0;
+        return joypad.getRawAxis(5);  
     }
 }
 
