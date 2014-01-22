@@ -12,6 +12,8 @@ public class RobotMap {
     public static final int leftMotor = 1;
     public static final int rightMotor = 2;
     public static final int launcher = 3;
+    public static final int lowerLimitSwitch = 4;
+    public static final int upperLimitSwitch = 5;
     
     //relay ports
     public static final int intake = 1;

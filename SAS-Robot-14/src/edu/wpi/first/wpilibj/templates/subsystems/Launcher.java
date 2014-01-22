@@ -5,6 +5,7 @@
  */
 package edu.wpi.first.wpilibj.templates.subsystems;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.templates.commands.LauncherDoNothing;
@@ -15,8 +16,12 @@ import edu.wpi.first.wpilibj.templates.RobotMap;
 public class Launcher extends Subsystem {
 
     Victor motor = new Victor(RobotMap.launcher);
-    boolean lowLimSwitch = false;
-    boolean highLimSwitch = false;
+    DigitalInput lower = new DigitalInput(RobotMap.lowerLimitSwitch);
+    DigitalInput upper = new DigitalInput(RobotMap.upperLimitSwitch);
+    
+
+    boolean lowLimSwitch = lower.get();
+    boolean highLimSwitch = upper.get();
     
     public Launcher(){
         super("Launcher");
