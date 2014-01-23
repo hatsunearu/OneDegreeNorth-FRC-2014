@@ -31,4 +31,8 @@ public class Drivetrain extends Subsystem {
         drive.tankDrive(left, right);
     }
     
+    public void driveStraight(double speed) {
+        drive.tankDrive(speed, speed);
+    }
+    
 }
