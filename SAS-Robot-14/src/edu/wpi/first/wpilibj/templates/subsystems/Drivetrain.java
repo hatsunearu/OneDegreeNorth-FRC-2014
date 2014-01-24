@@ -32,7 +32,14 @@ public class Drivetrain extends Subsystem {
     }
     
     public void driveStraight(double speed) {
-        drive.tankDrive(speed, speed);
+        if (Math.abs(speed) < 0.3) {
+            drive.tankDrive(speed * speed / Math.abs(speed),speed * speed / Math.abs(speed));
+        } 
+        else if (Math.abs(speed) < 0.1) {
+            drive.tankDrive(0, 0);
+        } else { 
+            drive.tankDrive(speed, speed);
+        }
     }
     
 }
