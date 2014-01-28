@@ -13,7 +13,6 @@ import edu.wpi.first.wpilibj.Preferences;
  */
 public class RobotConstants {
     
-    static Preferences pref;
     
     //LauncherReset
     public static final double retractTime = 0.5;
@@ -30,10 +29,4 @@ public class RobotConstants {
     public static final double defaultRetractTime = 1;
     public static final double defaultRetractSpeed = 0.5;
     
-    //Default Drive Distance
-    public static final double DriveDistance = pref.getDouble("DriveDistanceKp", 3);
-    public static final double DriveDistanceKp = pref.getDouble("DriveDistanceKp", .44);
-    public static final double DriveDistanceKi = pref.getDouble("DriveDistanceKp", 0.00133);
-    public static final double DriveDistanceSpeedLimit = pref.getDouble("DriveDistanceKp", .6);
-    public static final double DriveDistanceTimeout = pref.getDouble("DriveDistanceKp", 10);
 }
