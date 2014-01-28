@@ -1,6 +1,6 @@
 package edu.wpi.first.wpilibj.templates.commands;
 
-import edu.wpi.first.wpilibj.templates.RobotConstants;
+import edu.wpi.first.wpilibj.Preferences;
 
 /**
  *
@@ -8,29 +8,42 @@ import edu.wpi.first.wpilibj.templates.RobotConstants;
  */
 public class DriveDistance extends CommandBase {
     
-    double distanceToDrive = RobotConstants.DriveDistance;
-    double Kp = RobotConstants.DriveDistanceKp;
-    double Ki = RobotConstants.DriveDistanceKi;
+    Preferences prefs = Preferences.getInstance();
+    
+    double distanceToDrive;
+    double Kp;
+    double Ki;
+    double speedLimit;
     double error, errorSum = 0;
     
     public DriveDistance() {
         requires(drivetrain);
         requires(vision);
-        this.setTimeout(RobotConstants.DriveDistanceTimeout);
+        
         errorSum = 0;
+        System.out.println("DriveDistance Instantiation");
     }
     
     public DriveDistance(double distance) {
         distanceToDrive = distance;
         requires(drivetrain);
         requires(vision);
-        this.setTimeout(RobotConstants.DriveDistanceTimeout);
+        
         errorSum = 0;
+        System.out.println("DriveDistance Instantiation");
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
         errorSum = 0;
+        
+        Kp = prefs.getDouble("DriveDistanceKp", 0.75);
+        Ki = prefs.getDouble("DriveDistanceKi", 0);
+        this.setTimeout(prefs.getDouble("DriveDistanceTO", 5));
+        speedLimit = prefs.getDouble("DriveDistanceSL", 0.55);
+        distanceToDrive = prefs.getDouble("DriveDistanceTarget", 3);
+        
+        System.out.println("Kp = "+Kp+" Ki = "+Ki);
         updatePID();
     }
 
@@ -52,8 +65,8 @@ public class DriveDistance extends CommandBase {
     }
     
     protected void filterMove(double speed) {
-        if (Math.abs(speed) > RobotConstants.DriveDistanceSpeedLimit) {
-            speed = (RobotConstants.DriveDistanceSpeedLimit * getSign(speed));
+        if (Math.abs(speed) > speedLimit) {
+            speed = (speedLimit * getSign(speed));
         }
         drivetrain.driveStraight(speed); 
         System.out.println("Speed: " + speed);
