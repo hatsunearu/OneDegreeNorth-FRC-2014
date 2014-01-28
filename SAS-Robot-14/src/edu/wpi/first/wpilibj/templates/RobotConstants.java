@@ -28,8 +28,8 @@ public class RobotConstants {
     
     //Default Drive Distance
     public static final double DriveDistance = 3;
-    public static final double DriveDistanceKp = 0.4;
-    public static final double DriveDistanceKi = 0.05;
+    public static final double DriveDistanceKp = 0.44;
+    public static final double DriveDistanceKi = 0.00133;
     public static final double DriveDistanceSpeedLimit = 0.6;
     public static final double DriveDistanceTimeout = 10;
 }

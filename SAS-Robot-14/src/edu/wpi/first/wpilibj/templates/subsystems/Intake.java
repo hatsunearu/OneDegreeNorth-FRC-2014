@@ -17,11 +17,12 @@ public class Intake extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
-    Relay motor;
+    Relay motor1, motor2;
     
     public Intake(){
         super("Intake");
-        motor = new Relay(RobotMap.intake);
+        motor1 = new Relay(RobotMap.intake1);
+        motor2 = new Relay(RobotMap.intake2);
         System.out.println("INTAKE instantiation"); //DEBUG
     }
     
@@ -30,17 +31,22 @@ public class Intake extends Subsystem {
     }
     
     public void stop(){
-        motor.set(Relay.Value.kOff);
+        motor1.set(Relay.Value.kOff);
+        motor2.set(Relay.Value.kOff);
         //System.out.println("INTAKE stop"); //DEBUG
     }
     
     public void in(){
-        motor.set(Relay.Value.kForward); //may require reversal
+        motor1.set(Relay.Value.kForward);
+        motor2.set(Relay.Value.kForward);
+        //may require reversal
         //System.out.println("INTAKE in"); //DEBUG
     }
     
     public void out(){
-        motor.set(Relay.Value.kReverse); //may require reversal
+        motor1.set(Relay.Value.kReverse);
+        motor2.set(Relay.Value.kReverse);
+        //may require reversal
         //System.out.println("INTAKE out"); //DEBUG
     }
 }
