@@ -16,6 +16,7 @@ public class RobotMap {
     public static final int upperLimitSwitch = 5;
     
     //relay ports
-    public static final int intake = 1;
+    public static final int intake1 = 1;
+    public static final int intake2 = 2;
     
 }
