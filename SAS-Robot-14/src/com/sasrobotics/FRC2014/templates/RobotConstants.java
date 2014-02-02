@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.wpi.first.wpilibj.templates;
+package com.sasrobotics.FRC2014.templates;
 
 import edu.wpi.first.wpilibj.Preferences;
 
@@ -22,11 +22,11 @@ public class RobotConstants {
     public static final boolean linear = false; //Flag, linear joystick drive
     
     //LauncherShoot
-    public static final double defaultLaunchTime = 0.5;
-    public static final double defaultLaunchSpeed = 1.0;
+    public static final double defaultLaunchTime = 2;
+    public static final double defaultLaunchSpeed = 0.9;
 
     //LauncherReset
-    public static final double defaultRetractTime = 1;
-    public static final double defaultRetractSpeed = 0.5;
+    public static final double defaultRetractTime = 2;
+    public static final double defaultRetractSpeed = 0.3;
     
 }

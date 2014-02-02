@@ -5,15 +5,15 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package edu.wpi.first.wpilibj.templates;
+package com.sasrobotics.FRC2014.templates;
 
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.templates.commands.CommandBase;
-import edu.wpi.first.wpilibj.templates.commands.AutonomousShootGroup;
+import com.sasrobotics.FRC2014.commands.CommandBase;
+import com.sasrobotics.FRC2014.commands.AutonomousShootGroup;
 
 /**
  * The VM is configured to automatically run this class, and to call the
