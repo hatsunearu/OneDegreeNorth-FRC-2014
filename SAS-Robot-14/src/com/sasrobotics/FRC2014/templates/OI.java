@@ -1,16 +1,16 @@
 
-package edu.wpi.first.wpilibj.templates;
+package com.sasrobotics.FRC2014.templates;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.templates.commands.DriveDistance;
-import edu.wpi.first.wpilibj.templates.commands.IntakeIn;
-import edu.wpi.first.wpilibj.templates.commands.IntakeOut;
-import edu.wpi.first.wpilibj.templates.commands.InterruptAll;
-import edu.wpi.first.wpilibj.templates.commands.LauncherReset;
-import edu.wpi.first.wpilibj.templates.commands.LauncherShoot;
-import edu.wpi.first.wpilibj.templates.commands.LauncherShootAndReset;
+import com.sasrobotics.FRC2014.commands.DriveDistance;
+import com.sasrobotics.FRC2014.commands.IntakeIn;
+import com.sasrobotics.FRC2014.commands.IntakeOut;
+import com.sasrobotics.FRC2014.commands.InterruptAll;
+import com.sasrobotics.FRC2014.commands.LauncherReset;
+import com.sasrobotics.FRC2014.commands.LauncherShoot;
+import com.sasrobotics.FRC2014.commands.LauncherShootAndReset;
 
 /**
  * This class is the glue that binds the controls on the physical operator

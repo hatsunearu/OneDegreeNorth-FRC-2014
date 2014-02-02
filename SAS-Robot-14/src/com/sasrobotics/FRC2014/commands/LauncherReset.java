@@ -3,44 +3,49 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.wpi.first.wpilibj.templates.commands;
+package com.sasrobotics.FRC2014.commands;
 
-import edu.wpi.first.wpilibj.templates.RobotConstants;
-import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
+import com.sasrobotics.FRC2014.templates.RobotConstants;
+import com.sasrobotics.FRC2014.subsystems.Launcher;
 
-public class LauncherShoot extends CommandBase {
+/**
+ *
+ * @author Kartikye
+ */
+public class LauncherReset extends CommandBase {
     
-    double speed = RobotConstants.defaultLaunchSpeed;
+    double speed = RobotConstants.defaultRetractSpeed;
     
-    public LauncherShoot() {
+    public LauncherReset() {
         requires(launcher);
-        this.setTimeout(RobotConstants.defaultLaunchTime);
+        this.setTimeout(RobotConstants.defaultRetractTime);
     }
     
-    public LauncherShoot(double spd) {
+    public LauncherReset(double spd) {
         requires(launcher);
+        this.setTimeout(RobotConstants.defaultRetractTime);
         speed = spd;
-        this.setTimeout(RobotConstants.defaultLaunchTime);
     }
     
-    public LauncherShoot(double spd, double timeout) {
+    public LauncherReset(double spd, double timeout) {
         requires(launcher);
+        this.setTimeout(RobotConstants.defaultRetractTime);
         speed = spd;
         this.setTimeout(timeout);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        launcher.stop();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        launcher.move(speed);
+        launcher.retract(speed);
     }
 
-    protected boolean isFinished() { //safety mechanism, robot should stop moving when timeout is reached
-        return (launcher.isLaunched() || this.isTimedOut());
+    // Make this return true when this Command no longer needs to run execute()
+    protected boolean isFinished() {
+        return (launcher.isRetracted() || this.isTimedOut());
     }
 
     // Called once after isFinished returns true

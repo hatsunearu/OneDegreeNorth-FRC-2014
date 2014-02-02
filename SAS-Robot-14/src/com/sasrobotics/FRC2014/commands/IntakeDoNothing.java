@@ -3,20 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
-package edu.wpi.first.wpilibj.templates.commands;
-
-import edu.wpi.first.wpilibj.templates.RobotConstants;
+package com.sasrobotics.FRC2014.commands;
 
 /**
  *
  * @author Kartikye
  */
-public class DriveWithJoysticks extends CommandBase {
+public class IntakeDoNothing extends CommandBase {
     
-    public DriveWithJoysticks() {
-        requires(drivetrain);
+    public IntakeDoNothing() {
+        requires(intake);
     }
 
     // Called just before this Command runs the first time
@@ -25,12 +21,7 @@ public class DriveWithJoysticks extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if( !RobotConstants.linear ) {
-            drivetrain.tankDrive( getSign( oi.getLeftStick() ) * Math.sqrt(Math.abs(oi.getLeftStick())), getSign( oi.getRightStick() ) * Math.sqrt(Math.abs(oi.getRightStick())));
-        }
-        else {
-            drivetrain.tankDrive(oi.getLeftStick(), oi.getRightStick());
-        }
+        intake.stop();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -45,12 +36,5 @@ public class DriveWithJoysticks extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    }
-    
-    private short getSign(double d) {
-        if(d >= 0) {
-            return -1;
-        }
-        return 1;
     }
 }

@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.wpi.first.wpilibj.templates.subsystems;
+package com.sasrobotics.FRC2014.subsystems;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Victor;
-import edu.wpi.first.wpilibj.templates.commands.LauncherDoNothing;
-import edu.wpi.first.wpilibj.templates.RobotConstants;
-import edu.wpi.first.wpilibj.templates.RobotMap;
+import com.sasrobotics.FRC2014.commands.LauncherDoNothing;
+import com.sasrobotics.FRC2014.templates.RobotConstants;
+import com.sasrobotics.FRC2014.templates.RobotMap;
 //import digital IO
 
 public class Launcher extends Subsystem {

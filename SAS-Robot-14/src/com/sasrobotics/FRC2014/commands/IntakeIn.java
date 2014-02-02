@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.wpi.first.wpilibj.templates.commands;
+package com.sasrobotics.FRC2014.commands;
 
-import edu.wpi.first.wpilibj.templates.subsystems.Intake;
+import com.sasrobotics.FRC2014.subsystems.Intake;
 
 /**
  *

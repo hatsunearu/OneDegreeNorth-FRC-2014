@@ -3,16 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.wpi.first.wpilibj.templates.commands;
+package com.sasrobotics.FRC2014.commands;
 
 /**
  *
  * @author Kartikye
  */
-public class IntakeDoNothing extends CommandBase {
+public class LauncherDoNothing extends CommandBase {
     
-    public IntakeDoNothing() {
-        requires(intake);
+    public LauncherDoNothing() {
+        // Use requires() here to declare subsystem dependencies
+        requires(launcher);
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +22,7 @@ public class IntakeDoNothing extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        intake.stop();
+        launcher.stop();
     }
 
     // Make this return true when this Command no longer needs to run execute()
