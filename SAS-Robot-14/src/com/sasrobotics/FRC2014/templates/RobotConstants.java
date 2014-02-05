@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.Preferences;
  */
 public class RobotConstants {
     
+    static Preferences pref;
     
     //LauncherReset
     public static final double retractTime = 0.5;
@@ -22,8 +23,8 @@ public class RobotConstants {
     public static final boolean linear = false; //Flag, linear joystick drive
     
     //LauncherShoot
-    public static final double defaultLaunchTime = 2;
-    public static final double defaultLaunchSpeed = 0.9;
+    public static final double defaultLaunchTime = pref.getDouble("defaultLaunchTime", .5);
+    public static final double defaultLaunchSpeed = pref.getDouble("defaultLaunchSpeed", .5);
 
     //LauncherReset
     public static final double defaultRetractTime = 2;
