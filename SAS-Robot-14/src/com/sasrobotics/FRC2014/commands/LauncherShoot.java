@@ -6,7 +6,6 @@
 package com.sasrobotics.FRC2014.commands;
 
 import com.sasrobotics.FRC2014.templates.RobotConstants;
-import com.sasrobotics.FRC2014.subsystems.Launcher;
 
 public class LauncherShoot extends CommandBase {
     
@@ -38,13 +37,15 @@ public class LauncherShoot extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        System.out.println(launcher.isLaunched() + " " + this.isTimedOut());
         if(currSpeed < speed) {
-            currSpeed += 0.05;
+            currSpeed += 0.2;
         }
         launcher.move(currSpeed);
     }
 
     protected boolean isFinished() { //safety mechanism, robot should stop moving when timeout is reached
+
         return (launcher.isLaunched() || this.isTimedOut());
     }
 

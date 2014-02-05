@@ -19,10 +19,6 @@ public class Launcher extends Subsystem {
     DigitalInput lower = new DigitalInput(RobotMap.lowerLimitSwitch);
     DigitalInput upper = new DigitalInput(RobotMap.upperLimitSwitch);
     
-
-    boolean lowLimSwitch = false;
-    boolean highLimSwitch = false;
-    
     public Launcher(){
         super("Launcher");
         System.out.println("LAUNCHER instantiation"); //DEBUG
@@ -34,7 +30,7 @@ public class Launcher extends Subsystem {
     
     public void move(double speed) { 
         
-        if(!highLimSwitch && speed >= 0 && speed <= 1) {
+        if(speed >= 0) {
             motor.set(speed);
         }
         else {
@@ -47,7 +43,7 @@ public class Launcher extends Subsystem {
     
     public void retract(double speed){
         
-        if(!lowLimSwitch && speed >= 0 && speed <= 1) {
+        if(speed >= 0) {
             motor.set(-speed);
         }
         else {
@@ -63,17 +59,10 @@ public class Launcher extends Subsystem {
     }
     
     public boolean isLaunched() {
-        //updateSwitches();
-        return highLimSwitch;
+        return false;
     }
     
     public boolean isRetracted() {
-        //updateSwitches();
-        return lowLimSwitch;
-    }
-    
-    public void updateSwitches() {
-        boolean lowLimSwitch = lower.get();
-        boolean highLimSwitch = upper.get();
+        return lower.get();
     }
 }
