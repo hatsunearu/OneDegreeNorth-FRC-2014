@@ -5,12 +5,13 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import com.sasrobotics.FRC2014.commands.DriveDistance;
+import com.sasrobotics.FRC2014.commands.DriveSlowWithJoysticks;
+import com.sasrobotics.FRC2014.commands.DriveWithJoysticks;
 import com.sasrobotics.FRC2014.commands.IntakeIn;
 import com.sasrobotics.FRC2014.commands.IntakeOut;
 import com.sasrobotics.FRC2014.commands.InterruptAll;
 import com.sasrobotics.FRC2014.commands.LauncherReset;
 import com.sasrobotics.FRC2014.commands.LauncherShoot;
-import com.sasrobotics.FRC2014.commands.LauncherShootAndReset;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -66,9 +67,12 @@ public class OI {
         button2.whenPressed(new IntakeOut());
         button3.whenPressed(new DriveDistance());
         button4.whenPressed(new InterruptAll());
-        button5.whenPressed(new LauncherShoot());
-        button6.whenPressed(new LauncherReset());
-        button7.whenPressed(new LauncherShootAndReset());
+        button5.whenPressed(new DriveSlowWithJoysticks());
+        button5.whenReleased(new DriveWithJoysticks());
+        button6.whenPressed(new LauncherShoot());
+        button6.whenReleased(new LauncherReset());
+        button7.whenPressed(new LauncherReset());
+        
     }
         
     /*
