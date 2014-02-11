@@ -4,23 +4,25 @@
  * and open the template in the editor.
  */
 package com.sasrobotics.FRC2014.commands;
+import edu.wpi.first.wpilibj.Preferences;
 
-import com.sasrobotics.FRC2014.templates.RobotConstants;
 
 public class LauncherShoot extends CommandBase {
     
-    double speed = RobotConstants.defaultLaunchSpeed;
+    Preferences prefs;
+    double speed;
     double currSpeed = 0;
     
     public LauncherShoot() {
         requires(launcher);
-        this.setTimeout(RobotConstants.defaultLaunchTime);
+        speed = prefs.getDouble("defaultLaunchSpeed", 0.8);
+        this.setTimeout(prefs.getDouble("defaultLaunchTime", 0.5));
     }
     
     public LauncherShoot(double spd) {
         requires(launcher);
         speed = spd;
-        this.setTimeout(RobotConstants.defaultLaunchTime);
+        this.setTimeout(prefs.getDouble("defaultLaunchTime", 0.5));
     }
     
     public LauncherShoot(double spd, double timeout) {
