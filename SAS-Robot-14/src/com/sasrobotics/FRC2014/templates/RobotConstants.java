@@ -19,12 +19,12 @@ public class RobotConstants {
     //JoystickDrive
     public static final boolean linear = false; //Flag, linear joystick drive
 
-/*
+
     //LauncherShoot
-    public static final double defaultLaunchTime = 0.50; //.45
+    public static final double defaultLaunchTime = 0.45; //.45
     public static final double defaultLaunchSpeed = 0.65; //.65
 
-*/    
+    
     //LauncherReset
     public static final double defaultRetractTime = 2;
     public static final double defaultRetractSpeed = 0.25;
